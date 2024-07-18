@@ -19,8 +19,10 @@ public class Car {
     @Column(name = "series")
     private int series;
 
-    @OneToOne(optional = true, mappedBy = "car")
+    @OneToOne
+    @JoinColumn(name = "id")
     private User user;
+
 
     public Car() {
     }
@@ -53,4 +55,14 @@ public class Car {
     public Long getId() {
         return id;
     }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "id=" + id +
+                ", model='" + model + '\'' +
+                ", series=" + series +
+                '}';
+    }
+
 }
